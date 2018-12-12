@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Server Information">
+	<meta name="author" content="Noah Baertsch">
+
+	<link rel="stylesheet" type="text/css" href="../../styles.css">
+
+	<title>JDOCS</title>
+</head>
+
+<header>
+	<img src="../../images/Gnome-system.png" alt="Gnome system thumbnail">
+	<h1>JDOCS</h1>
+	<p>Java Document Object Complexity Scanner</p>
+</header>
+
+<body>
+	<h1>The Why</h1>
+	<p>An overly complex DOM tree can have a number of negative implications for a webpage when combined with CSS styling that is too complex or his too wide a scope. See <a href="https://developers.google.com/web/tools/lighthouse/audits/dom-size">this article by Google</a> for how a complex DOM tree can harm a pages performance.</p>
+
+	<h1>The How</h1>
+	<p>This application leverages the <a href="https://jsoup.org/">JSoup library</a> to calculate the complexity of a single webpage.  In this context, complexity specifically refers to:
+		<ul>
+			<li>Total Nodes</li>
+			<li>Max Node Depth</li>
+			<li>Number of Sibling Nodes</li>
+		</ul>
+	</p>
+</body>
+
+<footer>
+	<div class="nav-box">
+		<a href="../index.html">Home</a>
+	</div>
+</footer>
+
+</html>

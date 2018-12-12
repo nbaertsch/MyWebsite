@@ -7,17 +7,38 @@
 	<meta name="description" content="Server Information">
 	<meta name="author" content="Noah Baertsch">
 
+	<link rel="stylesheet" type="text/css" href="../styles.css">
+
 	<title>Server Information</title>
 </head>
 
 <header>
 	<img src="../images/Gnome-system.png" alt="Gnome system thumbnail">
 	<h1>About This Server</h1>
-	<p>This page is under construction...</p>
 </header>
 
 <body>
-	<h1></h1>
+	<h1>The Server</h1>
+	<p>This profile site is served by an nginx server running on a Raspberry Pi 2B.  If you want to put a Pi webserver together yourself, all you need is a Rapsberry Pi, a micro SD, a stable internet connection, and an ISP that allows you to port-forward.  </p>
+
+	<h1>Raspberry Pi Setup</h1>
+	<p>Before you can begin doing anything with your Pi, it needs an operating system.  Personally, I installed <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a>.  I would reccomend the Lite image if you plan on using your Pi as a webserver.  This distro is 'Lite' in that it has no graphical user interface, meaning you will be doing evrything through the command line.  Once you've downloaded the image, you'll need to burn it to your micro SD card, which acts as the hard drive of the Pi. I recommend installing <a href="https://www.balena.io/etcher/">Etcher</a> for this.</p>
+	<p>Now, because this Pi will be headless (i.e. no monitor attached), we need to enable ssh for the image before booting it up on the machine.  This is very easy to do.  Simply add an empty text file named "ssh" (NOT ssh.txt) into the root of the SD card, and your set to go.  Now you can load the card into your Pi, plug it into your router, and turn it on.  Raspbian knows how to communicate with your router over the ethernet connection, so your router will assign it an IP address, which you'll need to know if you ever want to do anything with the machine other than look at it.  This takes us to the next step...</p>
+
+	<h1>Port Forwarding</h1>
+	<p>Port forwarding is a technique by which your router passes connections from the outside world to one of the machines on your LAN.  Because of the variety of ISP's and routers available, this step is going to be unique to you.  The basic steps are as follows: 
+		<ol>
+			<li>Login to your router's web-portal and find your Pi as a connected device.</li>
+			<li>Set your Pi's IP to static, or reserved, and write it down.</li>
+			<li>Setup forwarding rules to forward incoming port 80 requests to port 80 on the Pi</li>
+		</ol></p>
+
+	<h1>NginX Instalation and Setup</h1>
+	<p>Once that's all done you can ssh into the machine with the default login credentials (User: pi Password: raspberry).  The first thing you'll want to do is update the Pi's repos with <code>sudo apt-get update</code> and then <code>sudo apt-get upgrade</code>.  Now that aptitude is updated, installing nginx is just one line of commands <code>sudo apt-get install nginx</code>.</p>
+	<p>Now that everythings installed, you can run <code>sudo systemctl start nginx</code> to begin serving web pages from the Pi.  To verify this, use a web browser to navigate to the IP address of the Pi.  You should be greeted with the default nginx page, congrats!</p>
+
+	<h1>NginX Configurationg</h1>
+	<p>Coming soon!</p>
 </body>
 
 <footer>
